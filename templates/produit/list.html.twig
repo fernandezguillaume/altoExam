@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des stocks</h1>
+    <p><a href="{{ path('produit_add') }}">Ajouter un produit</a></p>
+    {% for produit in produits %}
+        <hr>
+        <p>Nom du produit : {{ produit.name }} | Quantité : {{ produit.quantity }} </p>
+    {% else %}
+        <p><small>Aucun produit n'a été ajouté, vous pouvez <a href="{{ path('produit_add') }}">en ajouter un pour commencer</a>.</small></p>
+    {% endfor %}
+{% endblock %}
