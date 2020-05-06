@@ -50,26 +50,6 @@ class ProduitsController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/produit/{id}", name="produit_manage")
-     */
-    public function manage(Request $request, $id)
-    {
-        $produit = $this->getDoctrine()->getRepository(Produit::class)->find($id);
-        // return to the projects list of the project is not found
-        if ($produit === null) {
-            return $this->redirectToRoute('produit_list');
-        }
 
-
-               
-                $this->getDoctrine()->getManager()->persist($project);
-                $this->getDoctrine()->getManager()->flush();
-
-        return $this->render('project/manage.html.twig', [
-            'project' => $project,
-            'projectStatusForm' => $projectStatusForm->createView()
-        ]);
-    }
 
 }
